@@ -20,9 +20,6 @@ def create_account(request):
             return render_page(user_exists=True)
         else:
             user = User.objects.create_user(username, email, password)
-            return redirect('http://google.com/')
+            return redirect('main.views.home')
     else:
         return render_page()
-
-def home(request):
-    return render(request, 'accounts/home.html', {})
