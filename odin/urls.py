@@ -13,4 +13,5 @@ urlpatterns = patterns('',
 
     url(r'^accounts/', include(accounts.urls)),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^main/', include(accounts.urls))
 )

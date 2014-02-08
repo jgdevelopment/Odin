@@ -6,3 +6,6 @@ def index(request):
 
 def create_account(request):
     return render(request, 'accounts/create_account.html', {})
+
+def home(request):
+    return render(request, 'accounts/home.html', {})
