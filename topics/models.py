@@ -17,6 +17,12 @@ class UserContributedInfo(models.Model):
     user = models.CharField(max_length=20)
     topic = models.ForeignKey(Topic)
     
+    def vote_count():
+        count = 0
+        for vote in Vote.objects.filter(info=self):
+            count = count + vote.amount
+        return count
+    
 class Vote(models.Model):
     # username of the voting user
     user = models.CharField(max_length=20)
