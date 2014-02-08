@@ -1,0 +1,22 @@
+{% extends "odin/base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+{% if invalid_login %}
+<p>That username or password was incorrect.</p>
+{% endif %}
+
+<h1>Login</h1>
+<form method="post">
+{% csrf_token %}
+<p><label for="username">Username</label>
+    <input id="username" type="text" name="username" maxlength="20" /></p>
+<p><label for="password">Password</label>
+    <input id="password" type="password" name="password" /></p>
+<input type="submit" value="Login"/>
+</form>
+
+
+{% endblock %}
