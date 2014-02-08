@@ -19,7 +19,7 @@ def create_account(request):
         password = request.POST.get('password')
         email = request.POST.get('email')
         
-        if User.objects.filter(username=username).exists() or User.objects.filter(email=email).exists():
+        if User.objects.filter(username__iexact=username).exists() or User.objects.filter(email__iexact=email).exists():
             return render_page(user_exists=True)
         else:
             user = User.objects.create_user(username, email, password)
