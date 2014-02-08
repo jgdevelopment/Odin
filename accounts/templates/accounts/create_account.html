@@ -1,24 +1,42 @@
 {% extends "odin/base.html" %}
-
+<!DOCTYPE html>
 {% block title %}Sign Up{% endblock %}
 
 {% block content %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-{% if user_exists %}
-<p>A user with that email address or username already exists.</p>
-{% endif %}
+    <title>Sign Up</title>
 
-<h1>Create an account.</h1>
-<form method="post">
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="signin.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <form class="form-signin" role="form" action="{% url 'home'%}" method = "get">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <input type="username" class="form-control" placeholder="Username" required autofocus>
+        <input type="password" class="form-control" placeholder="Password" required>
+        <label class="checkbox">
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+      </form>
+
+    </div> 
+  </body>
+</html>
+
 {% csrf_token %}
-<p><label for="username">Username</label>
-    <input id="username" type="text" name="username" maxlength="20" /></p>
-<p><label for="password">Password</label>
-    <input id="password" type="password" name="password" /></p>
-<p><label for="email">Email</label>
-    <input id="email" type="email" name="email" /></p>
-<input type="submit" value="Sign Up"/>
-</form>
-
 
 {% endblock %}
