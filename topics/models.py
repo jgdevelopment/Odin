@@ -4,11 +4,13 @@ from django.contrib.auth.models import User
 class Subject(models.Model):
     # eg. biology, chemistry, algebra 2
     name = models.CharField(max_length=20)
+    slug = models.SlugField()
     
 class Topic(models.Model):
     # eg. rational functions, dna transcription
     name = models.CharField(max_length=100)
     subject = models.ForeignKey(Subject)
+    slug = models.SlugField()
 
 # should be abstract but can't due to limitation.. will be slower,
 # fix later if noticeably slow
