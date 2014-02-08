@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     
     'accounts',
     'main',
+    'topics',
 )
 
 MIDDLEWARE_CLASSES = (
