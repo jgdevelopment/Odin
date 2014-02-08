@@ -3,15 +3,20 @@
 {% block title %}Sign Up{% endblock %}
 
 {% block content %}
+
+{% if user_exists %}
+<p>A user with that email address or username already exists.</p>
+{% endif %}
+
 <h1>Create an account.</h1>
-<form action="{% url 'home'%}" method = "get">
-<!---<form method="post">
--->
+<form method="post">
 {% csrf_token %}
 <p><label for="username">Username</label>
     <input id="username" type="text" name="username" maxlength="20" /></p>
 <p><label for="password">Password</label>
     <input id="password" type="password" name="password" /></p>
+<p><label for="email">Email</label>
+    <input id="email" type="email" name="email" /></p>
 <input type="submit" value="Sign Up"/>
 </form>
 
