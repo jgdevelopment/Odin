@@ -11,8 +11,6 @@
   
   <form class="form-horizontal" method="post">
   {% csrf_token %}
-    <fieldset>
-
       <!-- Form Name -->
     {% if invalid_login %}
 	  <p>That username or password was incorrect.</p>
@@ -42,9 +40,7 @@
       <div class="col-md-10">
         <button id="Login" name="Login" class="btn btn-block btn-success">Login</button>
       </div>
-      </form>
       </div>
-    </fieldset>
   </form>
 </div> <!--./row -->
 </div> <!--./container -->
