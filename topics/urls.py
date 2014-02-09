@@ -6,4 +6,5 @@ from topics import views
 urlpatterns = patterns('',
     url(r'^$', views.all_topics, name='all_topics'),
     url(r'^/(?P<slug>[-\w]+)', views.view_topic, name='view_topic'),
+    url(r'^generate_topic/', views.generate_topic, name='generate_topic'),
 )
