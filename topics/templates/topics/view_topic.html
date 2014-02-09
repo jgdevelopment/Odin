@@ -23,15 +23,9 @@
     <hr>
     </hr>
   <div class="form-group">
-     <!--  <form action="{% url 'all_topics'%}" method="get">
-     <label class="col-md-1 control-label" for="go_back"></label>
-     <div class="col-md-1">
-      <button id="go_back" name="" class="btn btn-block btn-success" style="position: absolute; left: 25px; top: 0px; ">Back</button></form> -->
     </div>
     <hr>
     </hr>
-<a href="../" style="position: absolute; left: 120px; top: 65px;">Back</a>
-
 <div class="container">
     <ul class="timeline">
         <li>
@@ -39,6 +33,9 @@
           <div class="timeline-panel">
             <div class="timeline-heading">
               <h4 class="timeline-title">Vocabulary</h4>
+              <form action='/topics/add_vocab/{{ slug }}'>
+               <button id="Add Vocab" value = "Add Vocab" name="Add Vocab" class="btn btn-block btn-success">Add Vocab</button> 
+                </form>
             </div>
             <div class="timeline-body">
             <p>
@@ -56,6 +53,10 @@
             <div class="timeline-heading">
               <h4 class="timeline-title">Links</h4>
             </div>
+            <form action='/topics/add_link/{{ slug }}'>
+               <button id="Add Link" value = "Add Link" name="Add Link" class="btn btn-block btn-success">Add Link</button> 
+                </form>
+                <p>
             <div class="timeline-body">
             {% for link in links %}
             <p>{{ link.description }}</p>
@@ -70,6 +71,10 @@
           <div class="timeline-panel">
             <div class="timeline-heading">
               <h4 class="timeline-title">Information</h4>
+              <form action='/topics/add_information/{{ slug }}'>
+               <button id="Add Information" value = "Add Information" name="Add Information" class="btn btn-block btn-success">Add Information</button> 
+                </form>
+                <p>
             </div>
             <div class="timeline-body">
               <p>{% for info in information %}
@@ -85,7 +90,12 @@
           <div class="timeline-panel">
             <div class="timeline-heading">
               <h4 class="timeline-title">Practice Problems</h4>
+              <form action='/topics/add_problem/{{ slug }}'>
+               <button id="Add Problem" value = "Add Problem" name="Add Problem" class="btn btn-block btn-success">Add Problem</button> 
+                </form>
+                <p>
             </div>
+
             <div class="timeline-body">
               <p>{% for problem in practice_problems %}
                 <h1>{{ problem.question }}</h1>
