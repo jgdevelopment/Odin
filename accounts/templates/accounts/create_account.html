@@ -1,62 +1,36 @@
 {% extends "odin/base.html" %}
-{% load staticfiles %}
 <!DOCTYPE html>
 {% block title %}Sign Up{% endblock %}
+
 {% block content %}
-<html lang="en">
-<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Sign Up</title>
+
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="signin.css" rel="stylesheet">
   </head>
 
   <body>
-    <form class="form-signin" role="form" action="{% url 'home'%}" method = "get">
 
     <div class="container">
-    <div class="row">
-    <form class="form-signin" role="form" action="{% url 'home'%}" method = "get">
-      <div class="page-header"><h2>Please Sign Up</h2></div>
-      <form class="form-horizontal">
-       <fieldset>
-        <div class="form-group">        
-        <label class="col-md-1 control-label" for="username"></label>  
-        <div class="col-md-12">
-          <input id="username" type="text" name="username" maxlength="20" placeholder="Username" class="form-control input-md" required autofocus>
-        </div>
-      <div class="form-group">        
-        <label class="col-md-1 control-label" for="username"></label>  
-        <div class="col-md-12">
-          <input type="password" class="form-control" placeholder="Password" required autofocus>
-        </div>
-      </div>
-      </div>
-      </fieldset>
-      </form>
-      </form>
+
+      <form class="form-signin" role="form" action="{% url 'home'%}" method = "get">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <input type="username" class="form-control" placeholder="Username" required autofocus>
+        <input type="password" class="form-control" placeholder="Password" required>
         <label class="checkbox">
-        <div class="col-md-2">
-        </div>
           <input type="checkbox" value="remember-me"> Remember me
         </label>
-
-        <div class="form-group">
-        <label class="col-md-1 control-label" for="login"></label>
-      <div class="col-md-10">
-        <button class="btn btn-block btn-success" type="submit">Sign Up</button>
-      </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
       </form>
-      </form>
-</div>
 
-</form>
-</div>
     </div> 
   </body>
-</html>
 
 {% csrf_token %}
 
