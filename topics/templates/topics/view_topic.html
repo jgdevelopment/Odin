@@ -1,35 +1,76 @@
 {% extends "odin/base.html" %}
-
 {% block title %}{{ name }}{% endblock %}
 
 {% block content %}
-
-<h2>Vocabulary Words</h2>
-{% for vocab in vocab_words %}
-<h4>{{ vocab.word }}</h4>
-<p>{{vocab.definition}}</p>
-{% endfor %}
-
-<h2>Links</h2>
-<ul>
-    {% for link in links %}
-    <li>
-    <p>{{ link.description }}</p>
-    <a href="{{ link.url }}">{{ link.url }}</a>
-    </li>
-    {% endfor %}
-</ul>
-
-<h2>Information</h2>
-{% for info in information %}
-    <h4>{{ info.subtopic }}</h4>
-    <p>{{ info.info }}</p>
-{% endfor %}
-
-<h2>Practice Problems</h2>
-{% for problem in practice_problems %}
-    <h4>{{ problem.question }}</h4>
-    <p>{{ problem.answer }}</p>
-{% endfor %}
-
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="{% static 'css/timeline.css' %}" />
+<div class="container">
+    <ul class="timeline">
+        <li>
+          <div class="timeline-badge"></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Vocabulary</h4>
+            </div>
+            <div class="timeline-body">
+            <p>
+            {% for vocab in vocab_words %}
+            <h1>{{ vocab.word }}</h1>
+            <p>{{vocab.definition}}</p>
+            {% endfor %}
+            </p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="timeline-badge danger"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Links</h4>
+            </div>
+            <div class="timeline-body">
+            {% for link in links %}
+             <p>
+            <li>
+            <p>{{ link.description }}</p>
+            <a href="{{ link.url }}">{{ link.url }}</a>
+             </li>
+            </p>
+            {% endfor %}
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="timeline-badge info"></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Information</h4>
+            </div>
+            <div class="timeline-body">
+              <p>{% for info in information %}
+                <h1>{{ info.subtopic }}</h1>
+                <p>{{ info.info }}</p>
+                {% endfor %}</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="timeline-badge success"></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Practice Problems</h4>
+            </div>
+            <div class="timeline-body">
+              <p>{% for problem in practice_problems %}
+                <h1>{{ problem.question }}</h1>
+                <p>{{ problem.answer }}</p>
+                {% endfor %}</p>
+            </div>
+          </div>
+        </li>
+    </ul>
+</div>
+</html>
 {% endblock %}

@@ -1,18 +1,29 @@
 {% extends "odin/base.html" %}
-
+{% load staticfiles %}
+<!DOCTYPE html>
 {% block title %}Browse all topics{% endblock %}
 
 {% block content %}
-
-{% for subject in subjects %}
-    <h3>{{ subject.0 }}</h3>
-    <ul>
-        {% for topic in subject.1 %}
-            <li>
+<html lang="en">
+<div class="container">
+	{% for subject in subjects %}
+    <div class="row">
+        <div class="span5">
+          <h4><a href="#">{{ subject.0 }}</a></h4>
+          <p>Overview of the course, prerequisites, instructor contact information, syllabus, location information</p>
+    	</div>
+    	{% for topic in subject.1 %}
+      	<div class="span3">
+          Topic: <span class="pull-right strong"></span>
+          <div>          <li>
             <a href="{% url 'topics.views.view_topic' topic.slug %}">{{ topic.name }}</a>
-            </li>
-        {% endfor %}
-    </ul>
-{% endfor %}
-
+        	</li>
+        	</div>
+    	  </div>
+    	  {% endfor %}
+      	</div>
+    </div>
+    <hr>
+    {% endfor %}
 {% endblock %}
+
