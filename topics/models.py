@@ -15,7 +15,7 @@ class Subject(models.Model):
         return cls(name=name, slug=slug)
         
     def __unicode__(self):
-        return name
+        return 'Subject: ' + self.name
     
 class Topic(models.Model):
     # eg. rational functions, dna transcription
@@ -29,7 +29,7 @@ class Topic(models.Model):
         return cls(name=title, subject=subject, slug=slug)
         
     def __unicode__(self):
-        return name
+        return 'Topic: ' + self.name
 
 # should be abstract but can't due to limitation.. will be slower,
 # fix later if noticeably slow
