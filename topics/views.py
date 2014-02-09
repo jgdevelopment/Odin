@@ -32,3 +32,6 @@ def view_topic(request,slug):
     practice_problems = PracticeProblem.objects.filter(topic=topic)
     information = Information.objects.filter(topic=topic)
     return render_page(topic.name, vocab_words, links, practice_problems, information)
+
+def go_back(request):
+    return redirect('topics/')

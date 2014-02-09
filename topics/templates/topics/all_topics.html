@@ -5,24 +5,51 @@
 
 {% block content %}
 <html lang="en">
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 <div class="container">
-	{% for subject in subjects %}
-    <div class="row">
-        <div class="span5">
-          <h4><a href="#">{{ subject.0 }}</a></h4>
-          <p>Overview of the course, prerequisites, instructor contact information, syllabus, location information</p>
-        {% for topic in subject.1 %}
-      	</div>
-      	<div class="span3">
-          Topic: <span class="pull-right strong"></span>
-          <div>          <li>
-            <a href="{% url 'topics.views.view_topic' topic.slug %}">{{ topic.name }}</a>
-        	</li>
-    	  </div>
-        {% endfor %}
-      	</div>
-    </div>
-    <hr>
-    {% endfor %}
+<div class="navbar-header">
+<a class="navbar-brand" href="../">Study Sherpa</a>
+</div>
+<div class="navbar-collapse collapse">
+<div class="navbar-collapse collapse">
+  
+</div>
+</div>
+</div>
+
+</div>
+
+<form action="{% url 'home'%}" method="get">
+<label class="col-md-1 control-label" for="go_back"></label>
+<div class="col-md-1">
+<button id="go_back" name="" class="btn btn-block btn-success" style="position: absolute; left: 8px; top: 60px; ">Back</button></form>
+</div>
+<div class="container">
+
+<hr></hr>
+
+<hr></hr>
+
+<hr></hr>
+<hr></hr>
+
+{% for subject in subjects %}
+<div class="row">
+<div class="span5">
+  <h4><a href="#">{{ subject.0 }}</a></h4>
+  <p>Overview of the course, prerequisites, instructor contact information, syllabus, location information</p>
+{% for topic in subject.1 %}
+</div>
+<div class="span3">
+  Topic: <span class="pull-right strong"></span>
+  <div>          <li>
+    <a href="{% url 'topics.views.view_topic' topic.slug %}">{{ topic.name }}</a>
+	</li>
+</div>
+{% endfor %}
+</div>
+</div>
+<hr>
+{% endfor %}
 {% endblock %}
 

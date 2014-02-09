@@ -6,6 +6,31 @@
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" type="text/css" href="{% static 'css/timeline.css' %}" />
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          
+          <a class="navbar-brand" href="../../">Study Sherpa</a>
+        </div>
+        <div class="navbar-collapse collapse">
+        <div class="navbar-collapse collapse">
+        </div>
+        </div>
+      </div>
+
+    </div>
+    <hr>
+    </hr>
+    <hr>
+    </hr>
+  <div class="form-group">
+      <form action="{% url 'all_topics'%}" method="get">
+     <label class="col-md-1 control-label" for="go_back"></label>
+     <div class="col-md-1">
+      <button id="go_back" name="" class="btn btn-block btn-success" >Back</button></form>
+    </div>
+    <hr>
+    </hr>
 <div class="container">
     <ul class="timeline">
         <li>
