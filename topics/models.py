@@ -6,13 +6,16 @@ import re
 
 class Subject(models.Model):
     # eg. biology, chemistry, algebra 2
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=50)
     slug = models.SlugField()
     
     @classmethod
     def create(cls, name):
         slug = slugify(name)
         return cls(name=name, slug=slug)
+        
+    def __unicode__(self):
+        return name
     
 class Topic(models.Model):
     # eg. rational functions, dna transcription
@@ -24,6 +27,9 @@ class Topic(models.Model):
     def create(cls, title, subject):
         slug = slugify(title)
         return cls(name=title, subject=subject, slug=slug)
+        
+    def __unicode__(self):
+        return name
 
 # should be abstract but can't due to limitation.. will be slower,
 # fix later if noticeably slow
