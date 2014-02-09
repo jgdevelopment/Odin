@@ -19,11 +19,16 @@
 
 </div>
 
-<form action="{% url 'home'%}" method="get">
-<label class="col-md-1 control-label" for="go_back"></label>
-<div class="col-md-1">
-<!-- <button id="go_back" name="" class="btn btn-block btn-success" style="position: absolute; left: 8px; top: 60px; ">Back</button></form>
-</div> -->
+<form action="{% url 'create_topic'%}" method="get">
+<div class="col-md-2 col-md-offset-2"></div>
+<label class="col-md-1 control-label" for="create_topic"></label>
+<div class="col-md-2">
+<button id="create_topic" name="" class="btn btn-block btn-success" style="position: absolute; left: 8px; top: 60px; ">Create Your Own Topic
+</button>
+
+</form>
+</center>
+</div>
 <div class="container">
 
 <hr></hr>
@@ -43,7 +48,6 @@
 <div class="span3">
   Topic: <span class="pull-right strong"></span>
   <div>          <li>
-    <a href="{% url 'topics.views.view_topic' topic.slug %}">{{ topic.name }}</a>
 	</li>
 </div>
 {% endfor %}
