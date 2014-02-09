@@ -2,7 +2,6 @@
 {% block title %}{{ name }}{% endblock %}
 {% block content %}
 {% load staticfiles %}
-{% load topics_extras %}
 <!DOCTYPE html>
 <link rel="stylesheet" type="text/css" href="{% static 'css/timeline.css' %}" />
 
@@ -43,7 +42,7 @@
             <p>
             {% for vocab in vocab_words %}
             <h1 style="font-size:20px;">{{ vocab.word }}: </h1>
-            <p> {{vocab.definition}}</p>
+            <p> {{vocab.definition}} <a href="#"><img src="{% static 'image/arrowUp.png' %}"style="width: 20px" ></a><a href="#"><img src="{% static 'image/arrowDown.png' %}"style="width: 20px"></a></p>
             {% endfor %}
             </p>
             </div>
@@ -63,7 +62,7 @@
             <div class="timeline-body">
               <p>{% for info in information %}
                 <h1 style = "font-size:20px;">{{ info.subtopic }}</h1>
-                <p>{{ info.info | markdown | safe}}</p>
+                <p>{{ info.info }} <a href="#"><img src="{% static 'image/arrowUp.png' %}"style="width: 20px" ></a><a href="#"><img src="{% static 'image/arrowDown.png' %}"style="width: 20px"></a></p>
                 <hr>
                 {% endfor %}</p>
             </div>
@@ -83,7 +82,7 @@
             <div class="timeline-body">
               <p>{% for problem in practice_problems %}
                 <h1 style = "font-size:20px;">{{ problem.question }}</h1>
-                <p>{{ problem.answer }}</p>
+                <p>{{ problem.answer }} <a href="#"><img src="{% static 'image/arrowUp.png' %}"style="width: 20px" ></a><a href="#"><img src="{% static 'image/arrowDown.png' %}"style="width: 20px"></a></p>
                 {% endfor %}</p>
             </div>
           </div>
@@ -101,7 +100,7 @@
             <div class="timeline-body">
             {% for link in links %}
             <p>{{ link.description }}</p>
-             <a href="{{ link.url }}">{{ link.url }}</a>
+             <a href="{{ link.url }}">{{ link.url }} <a href="#"><img src="{% static 'image/arrowUp.png' %}"style="width: 20px" ></a><a href="#"><img src="{% static 'image/arrowDown.png' %}"style="width: 20px"></a></a>
              <p>
              <p>
              <p>
