@@ -11,16 +11,15 @@
         <div class="span5">
           <h4><a href="#">{{ subject.0 }}</a></h4>
           <p>Overview of the course, prerequisites, instructor contact information, syllabus, location information</p>
-    	</div>
-    	{% for topic in subject.1 %}
+        {% for topic in subject.1 %}
+      	</div>
       	<div class="span3">
           Topic: <span class="pull-right strong"></span>
           <div>          <li>
             <a href="{% url 'topics.views.view_topic' topic.slug %}">{{ topic.name }}</a>
         	</li>
-        	</div>
     	  </div>
-    	  {% endfor %}
+        {% endfor %}
       	</div>
     </div>
     <hr>
