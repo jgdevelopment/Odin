@@ -1,5 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from topics.models import Subject, Topic, VocabWord, Link, PracticeProblem, Information
+from django.http import HttpResponseRedirect, HttpResponse
+from django.core.urlresolvers import reverse
+
 import urllib
 import json
 import base64
@@ -38,10 +41,32 @@ def view_topic(request,slug):
     information = Information.objects.filter(topic=topic)
     return render_page(topic.name, vocab_words, links, practice_problems, information)
 
-def generate_topic(request):
-    resp = _bing_api_call('chocolate')
-    print(resp)
-    return redirect('http://google.com/')
+def create_topic(request):
+    def render_page():
+        params = {'all_subjects':Subject.objects.all()}
+        return render(request, 'topics/create_topic.html', params)
+        
+    if request.method == 'POST':
+        subject_name = request.POST.get('subject')
+        topic_name = request.POST.get('topic')
+        
+        if not Topic.objects.filter(name=topic_name):
+            subj = Subject.objects.get(name=subject_name)
+            topic = Topic.create(topic_name, subj)
+            topic.save()
+            
+            for vocab in _vocab_words(topic_name):
+                vocab.topic = topic
+                vocab.save()
+                
+            for link in _bing_api_call(topic_name):
+                link.topic = topic
+                link.save()
+        else:
+            topic = Topic.objects.get(name=topic_name)
+        return HttpResponseRedirect(reverse('topics.views.view_topic', args=(topic.slug,)))
+    else:
+        return render_page()
 
 # return list of links
 def _bing_api_call(search_term):
@@ -57,8 +82,9 @@ def _bing_api_call(search_term):
     parsed = json.loads(response.decode('utf-8'))
     links = []
     for entry in parsed['d']['results']:
-        links.append(str(entry['Url']))
-    return links
+        link = Link(url=entry['Url'], description=entry['Description'])
+        links.append(link)
+    return links[:10]
 
 # returns list of VocabularyWord
 def _vocab_words(topic):

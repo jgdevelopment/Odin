@@ -1,0 +1,22 @@
+{% extends "odin/base.html" %}
+{% block title %}Create topic{% endblock %}
+
+{% block content %}
+
+<form action="" method="POST">
+{% csrf_token %}
+    <p><label for="subject">Subject: </label>
+       <select name="subject">
+            {% for subject in all_subjects %}
+                <option>{{ subject.name }}</option>
+            {% endfor %}
+       </select>
+    </p>
+    
+    <p><label for="topic">Topic: </label>
+        <input type="text" name="topic" />
+    </p>
+    <input type="submit" value="Create topic" />
+</form>
+
+{% endblock %}
