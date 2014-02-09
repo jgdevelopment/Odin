@@ -1,10 +1,10 @@
 {% extends "odin/base.html" %}
 {% block title %}{{ name }}{% endblock %}
-
 {% block content %}
 {% load staticfiles %}
 <!DOCTYPE html>
 <link rel="stylesheet" type="text/css" href="{% static 'css/timeline.css' %}" />
+
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -27,59 +27,42 @@
     <hr>
     </hr>
 <div class="container">
+<img src="{% static 'image/top.png' %}"style="width: 200px">
     <ul class="timeline">
         <li>
-          <div class="timeline-badge"></div>
+          <div class="timeline-badge warning"></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title">Vocabulary</h4>
+              <h4 class="timeline-title" style = "font-size:30px;">Vocabulary</h4>
               <form action='/topics/add_vocab/{{ slug }}'>
-               <button id="Add Vocab" value = "Add Vocab" name="Add Vocab" class="btn btn-block btn-success">Add Vocab</button> 
+               <button id="Add Vocab" value = "Add Vocab" name="Add Vocab" class="btn btn-block btn-warning">Add Vocab</button> 
                 </form>
             </div>
             <div class="timeline-body">
             <p>
             {% for vocab in vocab_words %}
-            <h1>{{ vocab.word }}</h1>
-            <p>{{vocab.definition}}</p>
+            <h1 style="font-size:20px;">{{ vocab.word }}: </h1>
+            <p> {{vocab.definition}}</p>
             {% endfor %}
             </p>
             </div>
           </div>
         </li>
-        <li>
-          <div class="timeline-badge danger"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Links</h4>
-            </div>
-            <form action='/topics/add_link/{{ slug }}'>
-               <button id="Add Link" value = "Add Link" name="Add Link" class="btn btn-block btn-success">Add Link</button> 
-                </form>
-                <p>
-            <div class="timeline-body">
-            {% for link in links %}
-            <p>{{ link.description }}</p>
-             <a href="{{ link.url }}">{{ link.url }}</a>
-            {% endfor %}
-            </p>
-            </div>
-          </div>
-        </li>
+        
         <li>
           <div class="timeline-badge info"></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title">Information</h4>
+              <h4 style = "font-size:30px;" class="timeline-title">Information</h4>
               <form action='/topics/add_information/{{ slug }}'>
-               <button id="Add Information" value = "Add Information" name="Add Information" class="btn btn-block btn-success">Add Information</button> 
+               <button id="Add Information" value = "Add Information" name="Add Information" class="btn btn-block btn-info">Add Information</button> 
                 </form>
                 <p>
             </div>
             <div class="timeline-body">
               <p>{% for info in information %}
-                <h1>{{ info.subtopic }}</h1>
-                <p>{{ info.info }}</p>
+                <h1 style = "font-size:20px;">{{ info.subtopic }}</h1>
+                <p>{{ info.info |linebreaksbr}}</p>
                 <hr>
                 {% endfor %}</p>
             </div>
@@ -89,7 +72,7 @@
           <div class="timeline-badge success"></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title">Practice Problems</h4>
+              <h4 style = "font-size:30px;" class="timeline-title">Practice Problems</h4>
               <form action='/topics/add_problem/{{ slug }}'>
                <button id="Add Problem" value = "Add Problem" name="Add Problem" class="btn btn-block btn-success">Add Problem</button> 
                 </form>
@@ -98,9 +81,32 @@
 
             <div class="timeline-body">
               <p>{% for problem in practice_problems %}
-                <h1>{{ problem.question }}</h1>
+                <h1 style = "font-size:20px;">{{ problem.question }}</h1>
                 <p>{{ problem.answer }}</p>
                 {% endfor %}</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="timeline-badge danger"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 style = "font-size:30px;" class="timeline-title">Links</h4>
+            </div>
+            <form action='/topics/add_link/{{ slug }}'>
+               <button id="Add Link" value = "Add Link" name="Add Link" class="btn btn-block btn-danger">Add Link</button> 
+                </form>
+                <p>
+            <div class="timeline-body">
+            {% for link in links %}
+            <p>{{ link.description }}</p>
+             <a href="{{ link.url }}">{{ link.url }}</a>
+             <p>
+             <p>
+             <p>
+             <hr>
+            {% endfor %}
+            </p>
             </div>
           </div>
         </li>
