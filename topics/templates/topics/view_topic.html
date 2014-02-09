@@ -1,0 +1,35 @@
+{% extends "odin/base.html" %}
+
+{% block title %}{{ name }}{% endblock %}
+
+{% block content %}
+
+<h2>Vocabulary Words</h2>
+{% for vocab in vocab_words %}
+<h4>{{ vocab.word }}</h4>
+<p>{{vocab.definition}}</p>
+{% endfor %}
+
+<h2>Links</h2>
+<ul>
+    {% for link in links %}
+    <li>
+    <p>{{ link.description }}</p>
+    <a href="{{ link.url }}">{{ link.url }}</a>
+    </li>
+    {% endfor %}
+</ul>
+
+<h2>Information</h2>
+{% for info in information %}
+    <h4>{{ info.subtopic }}</h4>
+    <p>{{ info.info }}</p>
+{% endfor %}
+
+<h2>Practice Problems</h2>
+{% for problem in practice_problems %}
+    <h4>{{ problem.question }}</h4>
+    <p>{{ problem.answer }}</p>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "odin/base.html" %}
+
+{% block title %}Browse all topics{% endblock %}
+
+{% block content %}
+
+{% for subject in subjects %}
+    <h3>{{ subject.0 }}</h3>
+    <ul>
+        {% for topic in subject.1 %}
+            <li>
+            <a href="{% url 'topics.views.view_topic' topic.slug %}">{{ topic.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endfor %}
+
+{% endblock %}
