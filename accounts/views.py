@@ -48,5 +48,3 @@ def logout(request):
     auth_logout(request)
     return redirect('main.views.home')
 
-def goBack(request):
-    return redirect('../')

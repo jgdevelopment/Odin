@@ -1,5 +1,5 @@
 div#submitForm input {
-  background: url("../images/findButton.png") no-repeat scroll 0 0 transparent;
+  background: url("../../images/findButton.png");
   color: #000000;
   cursor: pointer;
   font-weight: bold;
