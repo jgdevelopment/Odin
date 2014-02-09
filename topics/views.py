@@ -26,12 +26,13 @@ def all_topics(request):
     return render_page(subjects)
     
 def view_topic(request,slug):
-    def render_page(name, vocab_words, links, practice_problems, information):
+    def render_page(name, vocab_words, links, practice_problems, information, slug):
         params = {'name': name,
                   'vocab_words': vocab_words,
                   'links': links,
                   'practice_problems': practice_problems,
-                  'information': information}
+                  'information': information
+                  'slug': slug}
         return render(request, 'topics/view_topic.html', params)
         
     topic = get_object_or_404(Topic, slug=slug)
@@ -39,7 +40,7 @@ def view_topic(request,slug):
     links = Link.objects.filter(topic=topic)
     practice_problems = PracticeProblem.objects.filter(topic=topic)
     information = Information.objects.filter(topic=topic)
-    return render_page(topic.name, vocab_words, links, practice_problems, information)
+    return render_page(topic.name, vocab_words, links, practice_problems, information, topic.slug)
 
 def create_topic(request):
     def render_page():
