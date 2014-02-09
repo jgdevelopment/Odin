@@ -30,6 +30,8 @@
     </div>
     <hr>
     </hr>
+<a href="../" style="position: absolute; left: 120px; top: 65px;">Back</a>
+
 <div class="container">
     <ul class="timeline">
         <li>
@@ -73,6 +75,7 @@
               <p>{% for info in information %}
                 <h1>{{ info.subtopic }}</h1>
                 <p>{{ info.info }}</p>
+                <hr>
                 {% endfor %}</p>
             </div>
           </div>
@@ -94,3 +97,4 @@
     </ul>
 </div>
 {% endblock %}
+
