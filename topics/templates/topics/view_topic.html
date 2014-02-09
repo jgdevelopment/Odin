@@ -23,10 +23,10 @@
     <hr>
     </hr>
   <div class="form-group">
-      <form action="{% url 'all_topics'%}" method="get">
+     <!--  <form action="{% url 'all_topics'%}" method="get">
      <label class="col-md-1 control-label" for="go_back"></label>
      <div class="col-md-1">
-      <button id="go_back" name="" class="btn btn-block btn-success" style="position: absolute; left: 25px; top: 0px; ">Back</button></form>
+      <button id="go_back" name="" class="btn btn-block btn-success" style="position: absolute; left: 25px; top: 0px; ">Back</button></form> -->
     </div>
     <hr>
     </hr>
@@ -56,13 +56,10 @@
             </div>
             <div class="timeline-body">
             {% for link in links %}
-             <p>
-            <li>
             <p>{{ link.description }}</p>
-            <a href="{{ link.url }}">{{ link.url }}</a>
-             </li>
-            </p>
+             <a href="{{ link.url }}">{{ link.url }}</a>
             {% endfor %}
+            </p>
             </div>
           </div>
         </li>

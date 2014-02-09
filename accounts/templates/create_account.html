@@ -1,0 +1,37 @@
+{% extends "odin/base.html" %}
+<!DOCTYPE html>
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Sign Up</title>
+
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="signin.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <form class="form-signin" role="form" action="{% url 'home'%}" method = "get">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <input type="username" class="form-control" placeholder="Username" required autofocus>
+        <input type="password" class="form-control" placeholder="Password" required>
+        <label class="checkbox">
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+      </form>
+
+    </div> 
+  </body>
+
+{% csrf_token %}
+
+{% endblock %}
