@@ -1,0 +1,59 @@
+{% extends "odin/base.html" %}
+{% block title %}Create topic{% endblock %}
+{% block content %}
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
+<form action="" method="POST">
+<div class="container">
+<div class="row">
+  <div class="page-header"><h2>Create Topic</h2></div>
+  <form class="horizontal-form" method = "post">
+  {% csrf_token %}
+    <fieldset>
+      <legend><h3>Add your own topic.</h3></legend>
+
+      <!-- Text input-->
+
+      <div class="form-group">        
+        <label class="col-md-1 control-label" for="username"></label>  
+        <div class="col-md-12">
+          <p><label for="subject">Subject: </label>
+            <select name="subject">
+            {% for subject in all_subjects %}
+                <option>{{ subject.name }}</option>
+            {% endfor %}
+       </select>
+    </p>
+        </div>
+      </div>
+
+      <!-- Password input-->
+      <div class="form-group">
+        <label class="col-md-1 control-label" for="password"></label>
+        <div class="col-md-12">
+          <label for="topic">Topic: </label>
+          <input id="topic" type="text" name="topic" maxlength="20" placeholder="" class="form-control input-md" required autofocus>
+        </div>
+      </div>
+   </form>
+    </hr>
+      <!-- Button (Double) -->
+      <form class="form-signin" role="form" action="{% url 'home'%}" method = "get">
+
+      <div class="form-group">
+        <label class="col-md-1 control-label" for="login"></label>
+      <div class="col-md-10">
+      <hr>
+      </hr>
+       <button id="Create Topic" value = "Create Topic" name="Create Topic" class="btn btn-block btn-success">Create Topic</button>
+      </div>
+      </form>
+      </div>
+    </fieldset>
+  </form>
+</div> <!--./row -->
+</div> <!--./container -->
+{% csrf_token %}
+{% endblock %}
+
+

@@ -67,6 +67,79 @@ def create_topic(request):
         return HttpResponseRedirect(reverse('topics.views.view_topic', args=(topic.slug,)))
     else:
         return render_page()
+        
+def add_vocab(request, topic_slug):
+    topic = Topic.objects.get(slug=topic_slug)
+
+    def render_page():
+        params = {'topic_name': topic.name}
+        return render(request, 'topics/add_vocab.html', params)
+    
+    if request.method == 'POST':
+        word = request.POST.get('word')
+        definition = request.POST.get('definition')
+        if not VocabWord.objects.filter(word=word).exists():
+            vocab = VocabWord(word=word, definition=definition)
+            vocab.topic = topic
+            vocab.save()
+        return HttpResponseRedirect(reverse('topics.views.view_topic', args=(topic.slug,)))
+    else:
+        return render_page()
+
+def add_link(request, topic_name):
+    topic = Topic.objects.get(slug=topic_slug)
+
+    def render_page():
+        params = {'topic_name': topic.name}
+        return render(request, 'topics/add_link.html', params)
+    
+    if request.method == 'POST':
+        url = request.POST.get('url')
+        description = request.POST.get('description')
+        if not Link.objects.filter(url=url).exists():
+            link = Link(url=url, description=description)
+            link.topic = topic
+            link.save()
+        return HttpResponseRedirect(reverse('topics.views.view_topic', args=(topic.slug,)))
+    else:
+        return render_page()
+    
+def add_information(request, topic_slug):
+    print(topic_slug)
+    topic = Topic.objects.get(slug=topic_slug)
+
+    def render_page():
+        params = {'topic_name': topic.name}
+        return render(request, 'topics/add_information.html', params)
+    
+    if request.method == 'POST':
+        subtopic = request.POST.get('subtopic')
+        description = request.POST.get('description')
+        if not Information.objects.filter(subtopic=subtopic).exists():
+            info = Information(subtopic=subtopic, description=description)
+            info.topic = topic
+            info.save()
+        return HttpResponseRedirect(reverse('topics.views.view_topic', args=(topic.slug,)))
+    else:
+        return render_page()
+    
+def add_problem(request, topic_slug):
+    topic = Topic.objects.get(slug=topic_slug)
+
+    def render_page():
+        params = {'topic_name': topic.name}
+        return render(request, 'topics/add_problem.html', params)
+    
+    if request.method == 'POST':
+        question = request.POST.get('question')
+        answer = request.POST.get('answer')
+        if not PracticeProblem.objects.filter(question=question).exists():
+            problem = PracticeProblem(question=question, answer=answer)
+            problem.topic = topic
+            problem.save()
+        return HttpResponseRedirect(reverse('topics.views.view_topic', args=(topic.slug,)))
+    else:
+        return render_page()
 
 # return list of links
 def _bing_api_call(search_term):
