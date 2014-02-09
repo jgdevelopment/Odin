@@ -86,7 +86,7 @@ def add_vocab(request, topic_slug):
     else:
         return render_page()
 
-def add_link(request, topic_name):
+def add_link(request, topic_slug):
     topic = Topic.objects.get(slug=topic_slug)
 
     def render_page():
@@ -114,9 +114,9 @@ def add_information(request, topic_slug):
     
     if request.method == 'POST':
         subtopic = request.POST.get('subtopic')
-        description = request.POST.get('description')
+        information = request.POST.get('information')
         if not Information.objects.filter(subtopic=subtopic).exists():
-            info = Information(subtopic=subtopic, description=description)
+            info = Information(subtopic=subtopic, info=information)
             info.topic = topic
             info.save()
         return HttpResponseRedirect(reverse('topics.views.view_topic', args=(topic.slug,)))
