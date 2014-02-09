@@ -31,7 +31,7 @@ def view_topic(request,slug):
                   'vocab_words': vocab_words,
                   'links': links,
                   'practice_problems': practice_problems,
-                  'information': information
+                  'information': information,
                   'slug': slug}
         return render(request, 'topics/view_topic.html', params)
         
