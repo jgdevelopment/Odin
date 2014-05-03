@@ -1,114 +1,116 @@
 {% extends "odin/base.html" %}
+{% load staticfiles %}
 <!DOCTYPE html>
 {% block title %}Home{% endblock %}
 {% block content %}
-{% load staticfiles %}
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+    <title>Home</title> 
+    <meta property="og:title" content="">
 
-<html lang="en" class="no-js">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <title>Home</title>
-        <meta name="description" content="Responsive Retina-Friendly Menu with different, size-dependent layouts" />
-        <meta name="keywords" content="responsive menu, retina-ready, icon font, media queries, css3, transition, mobile" />
-        <meta name="author" content="Codrops" />
-        <link rel="shortcut icon" href="../favicon.ico"> 
-        <link rel="stylesheet" type="text/css" href="{% static 'grayscale/css/default.css' %}" />
-        <link rel="stylesheet" type="text/css" href="{% static 'grayscale/css/component.css' %}" />
-        <script src="{% static 'grayscale/js/modernizr.custom.js' %}"></script>
-    </head>
-    <body>
-        <div class="container"> 
-            <header>
-                <h1>Study Sherpa<span>a better way to study.</span></h1>    
-            </header>
-            <div class="main clearfix">
-                <nav id="menu" class="nav">                 
-                    <ul>
-                        <li>
-                            <a href="/topics">
-                                <span class="icon"> 
-                                    <i aria-hidden="true" class="icon-services"></i>
-                                </span>
-                                <span>Categories</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/accounts/login">
-                                <span class="icon">
-                                    <i aria-hidden="true" class="icon-portfolio"></i>
-                                </span>
-                                <span>Log In</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/accounts/create_account">
-                                <span class="icon">
-                                    <i aria-hidden="true" class="icon-blog"></i>
-                                </span>
-                                <span>Sign Up</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="icon">
-                                    <i aria-hidden="true" class="icon-team"></i>
-                                </span>
-                                <span>The team</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="icon">
-                                    <i aria-hidden="true" class="icon-contact"></i>
-                                </span>
-                                <span>Contact</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="icon">
-                                    <i aria-hidden="true" class="icon-home"></i>
-                                </span>
-                                <span>Blog</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fancybox/jquery.fancybox-v=2.1.5.css' %}" type="text/css" media="screen">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">    
+    
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,600,300,200&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    
+    
+    <link rel="prefetch" href="images/zoom.png">
+        
+</head>
+
+<body>
+    <div class="navbar navbar-fixed-top" data-activeslide="1">
+        <div class="container">
+        
+            <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+            
+            <div class="nav-collapse collapse navbar-responsive-collapse" >
+                <ul class="nav row">
+                <li data-slide="1" class="col-1 col-sm-2"><a id="menu-link-1"> <img src="{% static 'image/navLogo.png' %}"style="width: 125px"></a></li>
+                    <li data-slide="1" class="col-12 col-sm-2"><a id="menu-link-1" href="/accounts/create_account" title="Next Section"> <span class="text">Join</span></a></li>
+                    <li data-slide="2" class="col-12 col-sm-2"><a id="menu-link-2" href="/accounts/login" title="Next Section"> <span class="text">Log In</span></a></li>
+                </ul>
+            </div><!-- /.nav-collapse -->
+        </div><!-- /.container -->
+    </div><!-- /.navbar -->
+   
+    <!-- === MAIN Background === -->
+    <div class="slide story" id="slide-1" data-slide="1">
+        <div class="container">
+            <div id="home-row-1" class="row clearfix">
+                <div class="col-12">
+                    <h1 class="font-semibold">Study <span class="font-thin">Sherpa</span></h1>
+                    <h4 class="font-thin">Learn from thousands of study guides added to Study Sherpa every day. Check out some of our <span class="font-semibold">most popular study guides</span>, or <span class="font-semibold">create your own.</span></h4>
+                    <br>
+                    <br>
+                </div><!-- /col-12 -->
+            </div><!-- /row -->
+            <div id="home-row-2" class="row clearfix">
+                <div class="col-12 col-sm-4"><div class="" data-slide="4"></div><span></span></div>
+                <div class="col-12 col-sm-4"><div class="" data-slide="3"></div><span></span></div>
+                <div class="col-12 col-sm-4"><div class="" data-slide="5"></div><span></span></div>
+            </div><!-- /row -->
         </div><!-- /container -->
-        <script>
-            //  The function to change the class
-            var changeClass = function (r,className1,className2) {
-                var regex = new RegExp("(?:^|\\s+)" + className1 + "(?:\\s+|$)");
-                if( regex.test(r.className) ) {
-                    r.className = r.className.replace(regex,' '+className2+' ');
-                }
-                else{
-                    r.className = r.className.replace(new RegExp("(?:^|\\s+)" + className2 + "(?:\\s+|$)"),' '+className1+' ');
-                }
-                return r.className;
-            };  
+    </div><!-- /slide1 -->
+    
+    <!-- === Slide 2 === -->
+    <div class="slide story" id="slide-4" data-slide="4">
+        <div class="container">
+                <div class="hr">&nbsp;</div>
+                <div class="hr">&nbsp;</div>
+            <div class="row subtitle-row">
+                <div class="col-2"></div>
+            </div><!-- /row -->
+            <div class="col-1 col-sm-2 with-hover-text">
+                   <a href="/topics"><img src="{% static 'image/categoryBox.png' %}"style="width: 600px"></a>
+                </div>
+        </div><!-- /container -->
+    </div><!-- /slide2 -->
+    <div class="slide story" id="slide-2" data-slide="2">
+        <div class="container">
+            <div class="row line-row">
+        </div><!-- /container -->
+    </div><!-- /slide2 -->
+</body>
 
-            //  Creating our button in JS for smaller screens
-            var menuElements = document.getElementById('menu');
-            menuElements.insertAdjacentHTML('afterBegin','<button type="button" id="menutoggle" class="navtoogle" aria-hidden="true"><i aria-hidden="true" class="icon-menu"> </i> Menu</button>');
-
-            //  Toggle the class on click to show / hide the menu
-            document.getElementById('menutoggle').onclick = function() {
-                changeClass(this, 'navtoogle active', 'navtoogle');
+    <!-- SCRIPTS -->
+    <script src="js/html5shiv.js"></script>
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="fancybox/jquery.fancybox.pack-v=2.1.5.js"></script>
+    <script src="js/script.js"></script>
+    
+    <!-- fancybox init -->
+    <script>
+    $(document).ready(function(e) {
+        var lis = $('.nav > li');
+        menu_focus( lis[0], 1 );
+        
+        $(".fancybox").fancybox({
+            padding: 10,
+            helpers: {
+                overlay: {
+                    locked: false
+                }
             }
+        });
+    
+    });
+    </script>
 
-            // http://tympanus.net/codrops/2013/05/08/responsive-retina-ready-menu/comment-page-2/#comment-438918
-            document.onclick = function(e) {
-                var mobileButton = document.getElementById('menutoggle'),
-                    buttonStyle =  mobileButton.currentStyle ? mobileButton.currentStyle.display : getComputedStyle(mobileButton, null).display;
-
-                if(buttonStyle === 'block' && e.target !== mobileButton && new RegExp(' ' + 'active' + ' ').test(' ' + mobileButton.className + ' ')) {
-                    changeClass(mobileButton, 'navtoogle active', 'navtoogle');
-                }
-            }
-        </script>
-    </body>
-</html>{% endblock %}
+</html>
+{% endblock %}

@@ -21,7 +21,7 @@ body, html { font-size: 100%; padding: 0; margin: 0; }
 
 body {
 	font-family: 'Lato', Calibri, Arial, sans-serif;
-	color: #fff;
+	color: #000;
 }
 
 a {
@@ -140,7 +140,7 @@ a:active {
 button {
 	border: none;
 	padding: 0.6em 1.2em;
-	background: #c0392b;
+	background: #EA9900;
 	color: #fff;
 	font-family: 'Lato', Calibri, Arial, sans-serif;
 	font-size: 1em;
@@ -153,7 +153,7 @@ button {
 }
 
 button:hover {
-	background: #A5281B;
+	background: #D18A04;
 }
 
 @media screen and (max-width: 46.0625em) {
