@@ -3,8 +3,19 @@
 {% block content %}
 {% load staticfiles %}
 <!DOCTYPE html>
-<link rel="stylesheet" type="text/css" href="{% static 'css/timeline.css' %}" />
-
+<html lang="en" class="no-js">
+<head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Home</title>
+        <link rel="shortcut icon" href="../favicon.ico"> 
+        <link rel="stylesheet" type="text/css" href="{% static 'grayscale/css/default2.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'grayscale/css/component2.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/timeline.css' %}" />
+        <script src="{% static 'grayscale/js/modernizr.custom.js' %}"></script>
+</head>
+<body>
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -27,6 +38,20 @@
     <hr>
     </hr>
 <div class="container">
+<div class="md-modal md-effect-14" id="modal-14">
+      <div class="md-content">
+        <h3>Modal Dialog</h3>
+        <div>
+          <p>This is a modal window. You can do the following things with it:</p>
+          <ul>
+            <li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+            <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+            <li><strong>Close:</strong> click on the button below to close the modal.</li>
+          </ul>
+          <button class="md-close">Close me!</button>
+        </div>
+      </div>
+    </div>
 <img src="{% static 'image/top.png' %}"style="width: 200px">
     <ul class="timeline">
         <li>
@@ -34,9 +59,10 @@
           <div class="timeline-panel">
             <div class="timeline-heading">
               <h4 class="timeline-title" style = "font-size:30px;">Vocabulary</h4>
-              <form action='/topics/add_vocab/{{ slug }}'>
-               <button id="Add Vocab" value = "Add Vocab" name="Add Vocab" class="btn btn-block btn-warning">Add Vocab</button> 
-                </form>
+              <!--- <form action='/topics/add_vocab/{{ slug }}'>-->
+              <div class="column">
+               <button class="md-trigger" data-modal="modal-14">Add Vocab</button> 
+                 </div><!--- </form>>-->
             </div>
             <div class="timeline-body">
             <p>
@@ -111,6 +137,19 @@
           </div>
         </li>
     </ul>
+    <div class="md-overlay"></div><!-- the overlay element -->
+    <script src="{% static 'grayscale/js/classie.js' %}"></script>
+    <script src="{% static 'grayscale/js/modalEffects.js' %}"></script>
+
+    <!-- for the blur effect -->
+    <script>
+      // this is important for IEs
+      var polyfilter_scriptpath = '/js/';
+    </script>
+    <script src="{% static 'grayscale/js/cssParser.js' %}"></script>
+    <script src="{% static 'grayscale/js/css-filters-polyfill.js' %}"></script>
 </div>
+</body>
+<html>
 {% endblock %}
 

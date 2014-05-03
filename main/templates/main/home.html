@@ -3,116 +3,112 @@
 {% block title %}Home{% endblock %}
 {% block content %}
 {% load staticfiles %}
-<link rel="stylesheet" type="text/css" href="{% static 'grayscale/css/grayscale.css' %}" />
 
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Study Sherpa</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-
-    <!-- Fonts -->
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-
-    <!-- Custom Theme CSS -->
-
-</head>
-
-<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
-
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                    <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand" href="#page-top">
-                    <i class="fa fa-play-circle"></i>  <span class="light"></span> Study Sherpa
-                </a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-                <ul class="nav navbar-nav">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li class="page_scroll">
-                        <a href="/accounts/login">Log In</a>
-                    </li>
-                    <li class="page_scroll">
-                        <a href="/accounts/create_account">Sign Up</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-
-    <section class="intro">
-        <div class="intro-body">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h1 class="brand-heading">Study Sherpa</h1>
-                        <p class="intro-text">Sometimes it's easy to get lost when studying. We'll guide you to getting an A.</p>
-                        <div class="button">
-                        <form action="../topics">
-                        <button id="topics/" name="topics" class="btn btn-block btn-success">Find Topics</button>
-                        </form> 
-                        </div>
-                        </form>
-                        <div class="page-scroll">
-                            <a href="#about" class="btn btn-circle">
-                                <i class="fa fa-angle-double-down animated"></i>
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Home</title>
+        <meta name="description" content="Responsive Retina-Friendly Menu with different, size-dependent layouts" />
+        <meta name="keywords" content="responsive menu, retina-ready, icon font, media queries, css3, transition, mobile" />
+        <meta name="author" content="Codrops" />
+        <link rel="shortcut icon" href="../favicon.ico"> 
+        <link rel="stylesheet" type="text/css" href="{% static 'grayscale/css/default.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'grayscale/css/component.css' %}" />
+        <script src="{% static 'grayscale/js/modernizr.custom.js' %}"></script>
+    </head>
+    <body>
+        <div class="container"> 
+            <header>
+                <h1>Study Sherpa<span>a better way to study.</span></h1>    
+            </header>
+            <div class="main clearfix">
+                <nav id="menu" class="nav">                 
+                    <ul>
+                        <li>
+                            <a href="/topics">
+                                <span class="icon"> 
+                                    <i aria-hidden="true" class="icon-services"></i>
+                                </span>
+                                <span>Categories</span>
                             </a>
-                        </div>
-                    </div>
-                </div>
+                        </li>
+                        <li>
+                            <a href="/accounts/login">
+                                <span class="icon">
+                                    <i aria-hidden="true" class="icon-portfolio"></i>
+                                </span>
+                                <span>Log In</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/accounts/create_account">
+                                <span class="icon">
+                                    <i aria-hidden="true" class="icon-blog"></i>
+                                </span>
+                                <span>Sign Up</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="icon">
+                                    <i aria-hidden="true" class="icon-team"></i>
+                                </span>
+                                <span>The team</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="icon">
+                                    <i aria-hidden="true" class="icon-contact"></i>
+                                </span>
+                                <span>Contact</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="icon">
+                                    <i aria-hidden="true" class="icon-home"></i>
+                                </span>
+                                <span>Blog</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-        </div>
-    </section>
+        </div><!-- /container -->
+        <script>
+            //  The function to change the class
+            var changeClass = function (r,className1,className2) {
+                var regex = new RegExp("(?:^|\\s+)" + className1 + "(?:\\s+|$)");
+                if( regex.test(r.className) ) {
+                    r.className = r.className.replace(regex,' '+className2+' ');
+                }
+                else{
+                    r.className = r.className.replace(new RegExp("(?:^|\\s+)" + className2 + "(?:\\s+|$)"),' '+className1+' ');
+                }
+                return r.className;
+            };  
 
-    <section id="about" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>About Study Sherpa</h2>
-                <p>Study Sherpa provides you with automated study guides, so that you don't have to waste precious study time.</p>
-            </div>
-        </div>
-    </section>
+            //  Creating our button in JS for smaller screens
+            var menuElements = document.getElementById('menu');
+            menuElements.insertAdjacentHTML('afterBegin','<button type="button" id="menutoggle" class="navtoogle" aria-hidden="true"><i aria-hidden="true" class="icon-menu"> </i> Menu</button>');
 
-    <section id="download" class="content-section text-center">
-        <div class="download-section">
-            <div class="container">
-                <div class="col-lg-8 col-lg-offset-2">
-                    
+            //  Toggle the class on click to show / hide the menu
+            document.getElementById('menutoggle').onclick = function() {
+                changeClass(this, 'navtoogle active', 'navtoogle');
+            }
 
-    
+            // http://tympanus.net/codrops/2013/05/08/responsive-retina-ready-menu/comment-page-2/#comment-438918
+            document.onclick = function(e) {
+                var mobileButton = document.getElementById('menutoggle'),
+                    buttonStyle =  mobileButton.currentStyle ? mobileButton.currentStyle.display : getComputedStyle(mobileButton, null).display;
 
-    <!-- Core JavaScript Files -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-
-    <!-- Google Maps API Key - You will need to use your own API key to use the map feature -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="js/grayscale.js"></script>
-
-</body>
-
-</html>
-{% endblock %}
+                if(buttonStyle === 'block' && e.target !== mobileButton && new RegExp(' ' + 'active' + ' ').test(' ' + mobileButton.className + ' ')) {
+                    changeClass(mobileButton, 'navtoogle active', 'navtoogle');
+                }
+            }
+        </script>
+    </body>
+</html>{% endblock %}
